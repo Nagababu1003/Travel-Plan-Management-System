@@ -1,0 +1,166 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Plan Management</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="sidebar">
+    <h2>Travel<span>Pro</span></h2>
+
+    <nav>
+        <a href="#dashboard" class="active">Dashboard</a>
+        <a href="#form-section">Add Travel Plan</a>
+        <a href="#plans-section">All Travel Plans</a>
+    </nav>
+
+    <div class="sidebar-footer">
+        Travel Management System
+    </div>
+</div>
+
+<main class="main-content">
+
+    <header class="topbar">
+        <div>
+            <h1>Travel Dashboard</h1>
+            <p>Manage your travel plans in one place.</p>
+        </div>
+        
+    </header>
+
+    <section id="dashboard" class="stats">
+
+        <div class="stat-card">
+            <p>Total Plans</p>
+            <h2 id="totalPlans">0</h2>
+        </div>
+
+        <div class="stat-card">
+            <p>Active Plans</p>
+            <h2 id="activePlans">0</h2>
+        </div>
+
+        <div class="stat-card">
+            <p>Inactive Plans</p>
+            <h2 id="inactivePlans">0</h2>
+        </div>
+
+    </section>
+
+    <section id="form-section" class="panel">
+
+        <div class="section-heading">
+            <div>
+                <h2 id="formTitle">Add New Travel Plan</h2>
+                <p>Enter the details of your travel plan.</p>
+            </div>
+        </div>
+
+        <form id="travelPlanForm">
+
+            <input type="hidden" id="planId">
+
+            <div class="form-grid">
+
+                <div class="form-group">
+                    <label for="planName">Plan Name</label>
+                    <input type="text" id="planName"
+                           placeholder="Enter plan name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="planCategoryId">Plan Category</label>
+                    <select id="planCategoryId" required>
+                        <option value="">Select Category</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="planminBudget">Minimum Budget</label>
+                    <input type="number" id="planminBudget"
+                           placeholder="Enter minimum budget"
+                           min="0" step="0.01" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="activateSW">Status</label>
+                    <select id="activateSW">
+                        <option value="active">Active</option>
+                        <option value="inactive">Inactive</option>
+                    </select>
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="planDescription">Description</label>
+                    <textarea id="planDescription"
+                              placeholder="Enter travel plan description"
+                              maxlength="50" required></textarea>
+                </div>
+
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" id="saveButton" class="btn-primary">
+                    Save Travel Plan
+                </button>
+
+                <button type="button" id="cancelButton"
+                        class="btn-secondary" hidden>
+                    Cancel
+                </button>
+            </div>
+
+        </form>
+
+    </section>
+
+    <section id="plans-section" class="panel">
+
+        <div class="section-heading">
+            <div>
+                <h2>Travel Plans</h2>
+                <p>View and manage all registered travel plans.</p>
+            </div>
+
+            <button class="btn-refresh" onclick="loadTravelPlans()">
+                Refresh
+            </button>
+        </div>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Plan Name</th>
+                        <th>Budget</th>
+                        <th>Description</th>
+                        <th>Category ID</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody id="travelPlanTable">
+                    <tr>
+                        <td colspan="7">Loading travel plans...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+
+    <div id="message" class="message"></div>
+
+</main>
+
+<script src="js/app.js"></script>
+
+</body>
+</html>

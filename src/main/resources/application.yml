@@ -1,0 +1,31 @@
+
+server:
+  port: 4041
+
+spring:
+  application:
+    name: JRTP-MiniProject01-CURDOperations
+  datasource:
+    driver-class-name: oracle.jdbc.OracleDriver
+    url: jdbc:oracle:thin:@localhost:1521:NB
+    username: system
+    password: Naga1710
+  jpa:
+    show-sql: true
+    database-platform: org.hibernate.dialect.OracleDialect
+    hibernate:
+      ddl-auto: update
+
+
+plan:
+  module:
+    messages:
+        save-success: Travel Plan is saved with id value
+        save-failure: Travel plan is not saved with value
+        find-by-id-failure: Travel plan is not found
+        update-success: Travel Plan is updated
+        update-failure: Travel plan is not found for updation
+        delete-success: Travel Plan is deleted
+        delete-failure: Travel plan is not found for deletion
+        status-change-success: Travel Plan status is changed
+        status-change-failure: Travel plan is not found for status change
